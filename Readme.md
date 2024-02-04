@@ -1,6 +1,6 @@
 # Readme
 
-The image provides an isolated environment to test the AI assistant [Tabnine](https://www.tabnine.com/) in [Eclipse](https://www.eclipse.org/).
+This image provides an isolated environment to test the AI assistant [Tabnine](https://www.tabnine.com/) in [Eclipse](https://www.eclipse.org/).
 
 ## Docker Compose
 
@@ -30,10 +30,6 @@ sudo chown --reference data -R data/sources
 docker compose up -d
 ```
 ### Build
-
-```sh
-docker compose -f docker-compose.yml -f docker-compose.build.yml build
-```
 
 ## Docker
 
