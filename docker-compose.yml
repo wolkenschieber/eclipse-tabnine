@@ -1,0 +1,25 @@
+---
+version: "3.9"
+
+services:
+  eclipse-tabnine:
+    image: wolkenschieber/eclipse-tabnine:latest
+    restart: unless-stopped
+    container_name: eclipse-tabnine
+    shm_size: '1gb'
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - "3000:3000"
+    networks:
+      - eclipse-tabnine
+    volumes:
+      - config:/config
+      - ${PWD}/data:/data
+
+networks:
+  eclipse-tabnine:
+
+
+volumes:
+  config:

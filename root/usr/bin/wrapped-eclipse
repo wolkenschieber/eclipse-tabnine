@@ -1,0 +1,4 @@
+#!/bin/bash
+BIN=/opt/eclipse/eclipse
+
+${BIN} -data "/data/eclipse/workspace" -consoleLog -debug -clean -vmargs -Duser.home=/data/eclipse/user

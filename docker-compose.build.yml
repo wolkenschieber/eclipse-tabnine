@@ -1,0 +1,9 @@
+---
+version: "3.9"
+
+services:
+  eclipse-tabnine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      shm_size: '1gb'
