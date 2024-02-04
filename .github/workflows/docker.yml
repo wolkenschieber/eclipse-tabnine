@@ -48,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile.aarch64
           platforms: linux/arm64/v8
-          push: ${{ github.ref == 'refs/heads/aarch64' }}
+          push: ${{ github.ref == 'refs/heads/master' }}
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_IMAGENAME }}:arm64v8-latest          
 
       - run: echo "Finished with status ${{ job.status }}."
