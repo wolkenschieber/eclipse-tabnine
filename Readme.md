@@ -8,7 +8,41 @@ Docker images are available on [dockerhub](https://hub.docker.com/r/wolkenschieb
 | `wolkenschieber/eclipse-tabnine:latest`         | `amd64` |
 | `wolkenschieber/eclipse-tabnine:arm64v8-latest` | `arm64` |
 
+## Docker
+
+### Build
+
+```sh
+docker build --tag wolkenschieber/eclipse-tabnine:latest .
+```
+### Run 
+
+#### Background
+
+```sh
+docker run --detach \
+    -e TZ=Europe/Berlin \
+    -p 3000:3000 \
+    --name eclipse-tabnine \
+    --shm-size="1gb" \
+    wolkenschieber/eclipse-tabnine:latest
+```
+
+#### Diagnostic
+
+```sh
+docker run --rm -it \
+    -e TZ=Europe/Berlin \
+    -p 3000:3000 \
+    --name eclipse-tabnine \
+    --shm-size="1gb" \
+    wolkenschieber/eclipse-tabnine:latest \
+    bash
+```
+
 ## Docker Compose
+
+This project provides a sample [docker-compose.yml](https://github.com/wolkenschieber/eclipse-tabnine/blob/master/docker-compose.yml) file. Please configure the mounted volume as outlined below.
 
 ### Volumes
 
@@ -52,38 +86,6 @@ environment:
 ### arm64
 
 Replace images and Dockerfile with _arm64_ variant.
-
-## Docker
-
-### Build
-
-```sh
-docker build --tag wolkenschieber/eclipse-tabnine:latest .
-```
-### Run 
-
-#### Background
-
-```sh
-docker run --detach \
-    -e TZ=Europe/Berlin \
-    -p 3000:3000 \
-    --name eclipse-tabnine \
-    --shm-size="1gb" \
-    wolkenschieber/eclipse-tabnine:latest
-```
-
-#### Diagnostic
-
-```sh
-docker run --rm -it \
-    -e TZ=Europe/Berlin \
-    -p 3000:3000 \
-    --name eclipse-tabnine \
-    --shm-size="1gb" \
-    wolkenschieber/eclipse-tabnine:latest \
-    bash
-```
 
 ## Links
 
