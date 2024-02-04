@@ -1,6 +1,12 @@
 # Readme
 
-This image provides an isolated environment to test the AI assistant [Tabnine](https://www.tabnine.com/) in [Eclipse](https://www.eclipse.org/).
+This project provides an isolated environment to test the AI assistant [Tabnine](https://www.tabnine.com/) in [Eclipse](https://www.eclipse.org/). 
+
+Docker images are available on [dockerhub](https://hub.docker.com/r/wolkenschieber/eclipse-tabnine):
+| Image                                           | Arch    |
+| ----------------------------------------------- | ------- |
+| `wolkenschieber/eclipse-tabnine:latest`         | `amd64` |
+| `wolkenschieber/eclipse-tabnine:arm64v8-latest` | `arm64` |
 
 ## Docker Compose
 
@@ -31,6 +37,19 @@ docker compose up -d
 ```
 ### Build
 
+```sh
+docker compose -f docker-compose.yml -f docker-compose.build.yml build
+```
+
+### Proxy
+
+The container follows default proxy environment variables:
+```yaml
+environment:
+    - "HTTP_PROXY=http://proxyhost:8080"
+    - "HTTPS_PROXY=http://proxyhost:8080"      
+    - "NO_PROXY=127.0.0.1"
+```
 ## Docker
 
 ### Build
@@ -65,6 +84,7 @@ docker run --rm -it \
 
 ## Links
 
+* [wolkenschieber/eclipse-tabnine](https://hub.docker.com/r/wolkenschieber/eclipse-tabnine)
 * [linuxserver/kasmvnc](https://github.com/linuxserver/docker-baseimage-kasmvnc)
 * [wolkenschieber/docker-chromium](https://github.com/wolkenschieber/docker-chromium/tree/master)
 * [SO - How to download eclipse marketplace plugins for offline install](https://stackoverflow.com/questions/70746838/how-to-download-eclipse-marketplace-plugins-for-offline-install)
