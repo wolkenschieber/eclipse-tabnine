@@ -40,7 +40,6 @@ docker compose up -d
 ```sh
 docker compose -f docker-compose.yml -f docker-compose.build.yml build
 ```
-
 ### Proxy
 
 The container follows default proxy environment variables:
@@ -50,6 +49,10 @@ environment:
     - "HTTPS_PROXY=http://proxyhost:8080"      
     - "NO_PROXY=127.0.0.1"
 ```
+### arm64
+
+Replace images and Dockerfile with _arm64_ variant.
+
 ## Docker
 
 ### Build
