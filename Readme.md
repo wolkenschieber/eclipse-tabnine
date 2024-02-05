@@ -6,7 +6,6 @@ Docker images are available on [dockerhub](https://hub.docker.com/r/wolkenschieb
 | Image                                           | Arch    |
 | ----------------------------------------------- | ------- |
 | `wolkenschieber/eclipse-tabnine:latest`         | `amd64` |
-| `wolkenschieber/eclipse-tabnine:arm64v8-latest` | `arm64` |
 
 ## Docker
 
@@ -83,9 +82,6 @@ environment:
     - "HTTPS_PROXY=http://proxyhost:8080"      
     - "NO_PROXY=127.0.0.1"
 ```
-### arm64
-
-Replace images and Dockerfile with _arm64_ variant.
 
 ## Links
 
