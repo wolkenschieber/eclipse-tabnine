@@ -42,13 +42,4 @@ jobs:
           push: ${{ github.ref == 'refs/heads/master' }}
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_IMAGENAME }}:latest
 
-      - name: Build and push arm64v8 image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile.aarch64
-          platforms: linux/arm64/v8
-          push: ${{ github.ref == 'refs/heads/master' }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_IMAGENAME }}:arm64v8-latest          
-
       - run: echo "Finished with status ${{ job.status }}."
