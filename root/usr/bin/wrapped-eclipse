@@ -1,4 +1,31 @@
 #!/bin/bash
-BIN=/opt/eclipse/eclipse
+BIN='/opt/eclipse/eclipse'
+SUDO='sudo'
 
-${BIN} -data "/config/eclipse/workspace" -consoleLog -debug -clean -vmargs -Duser.home=/config/eclipse/user
+ECLIPSE_WORKSPACE="/config/eclipse/workspace"
+ECLIPSE_USER_DIR="/config/eclipse/user"
+
+COMMAND=''
+
+if [ -z "${ECLIPSE_RUN_AS_ROOT}" ]; then
+    ECLIPSE_RUN_AS_ROOT=0
+fi
+
+if [ "${ECLIPSE_RUN_AS_ROOT}" -eq 1 ]; then
+    COMMAND="${SUDO}"
+fi
+
+COMMAND="${COMMAND} ${BIN} -data ${ECLIPSE_WORKSPACE} -clean"
+
+
+if [ -z "${ECLIPSE_DEBUG}" ]; then
+    ECLIPSE_DEBUG=0
+fi
+
+if [ "${ECLIPSE_DEBUG}" -eq 1 ]; then
+    COMMAND="${COMMAND} -consoleLog -debug"
+fi
+
+COMMAND="${COMMAND} -vmargs -Duser.home=${ECLIPSE_USER_DIR}"
+
+${COMMAND}

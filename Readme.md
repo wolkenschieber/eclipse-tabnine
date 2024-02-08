@@ -9,11 +9,6 @@ Docker images are available on [dockerhub](https://hub.docker.com/r/wolkenschieb
 
 ## Docker
 
-### Build
-
-```sh
-docker build --tag wolkenschieber/eclipse-tabnine:latest .
-```
 ### Run 
 
 #### Background
@@ -28,7 +23,6 @@ docker run --detach \
     --shm-size="1gb" \
     wolkenschieber/eclipse-tabnine:latest
 ```
-
 #### Diagnostic
 
 ```sh
@@ -42,35 +36,30 @@ docker run --rm -it \
     wolkenschieber/eclipse-tabnine:latest \
     bash
 ```
+### Pull
+
+```sh
+docker pull wolkenschieber/eclipse-tabnine:latest
+```
+### Build
+
+```sh
+docker build --tag wolkenschieber/eclipse-tabnine:latest .
+```
 
 ## Docker Compose
 
-This project provides a sample [docker-compose.yml](https://github.com/wolkenschieber/eclipse-tabnine/blob/master/docker-compose.yml) file. Please configure the mounted volume as outlined below.
+This project provides a sample [docker-compose.yml](https://github.com/wolkenschieber/eclipse-tabnine/blob/master/docker-compose.yml) file.
 
-### Volumes
-
-#### Creating data volume
-
-The user's id in the image is _911_. Thus the permissions of the mounted volume must be set accordingly:
-```sh
-mkdir -p data/sources \
-    && sudo chown -R 911:911 data \
-    && sudo chmod -R ugo+rwxs data 
-```
-#### Cloning sources
-
-Clone sources via git into directory `/data/sources` via container's Eclipse.
-
-#### Copying sources
-
-Sources should be deployed to `data/sources`. After the deployment the file permissions need to be updated:
-```sh
-sudo chown --reference data -R data/sources
-```
 ### Run
 
 ```sh
 docker compose up -d
+```
+### Pull
+
+```sh
+docker compose pull
 ```
 ### Build
 
@@ -86,6 +75,19 @@ environment:
     - "HTTPS_PROXY=http://proxyhost:8080"      
     - "NO_PROXY=127.0.0.1"
 ```
+
+## Parameters
+
+| Parameter | Function |
+| :----: | --- |
+| `-p 3000` | Eclipse-Tabnine desktop gui. |
+| `-e PUID=1000` | for UserID |
+| `-e PGID=1000` | for GroupID |
+| `-e TZ=Etc/UTC` | specify a timezone to use |
+| `-e ECLIPSE_DEBUG=1` | run Eclipse with program args `-consoleLog -debug` |
+| `-e ECLIPSE_RUN_AS_ROOT=1` | run Eclipse as root |
+| `-v /config` | Users home directory in the container, stores program settings. |
+| `--shm-size=` | This is needed for electron applications to function properly. |
 
 ## Links
 
