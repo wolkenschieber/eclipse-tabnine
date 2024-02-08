@@ -20,6 +20,8 @@ docker build --tag wolkenschieber/eclipse-tabnine:latest .
 
 ```sh
 docker run --detach \
+    -e PUID=1000 \
+    -e PGID=1000 \
     -e TZ=Europe/Berlin \
     -p 3000:3000 \
     --name eclipse-tabnine \
@@ -31,6 +33,8 @@ docker run --detach \
 
 ```sh
 docker run --rm -it \
+    -e PUID=1000 \
+    -e PGID=1000 \
     -e TZ=Europe/Berlin \
     -p 3000:3000 \
     --name eclipse-tabnine \
