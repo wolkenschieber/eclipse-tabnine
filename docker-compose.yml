@@ -8,18 +8,20 @@ services:
     container_name: eclipse-tabnine
     shm_size: '1gb'
     environment:
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Berlin
+      - ECLIPSE_DEBUG=0
+      - ECLIPSE_RUN_AS_ROOT=0
     ports:
       - "3000:3000"
     networks:
       - eclipse-tabnine
     volumes:
       - config:/config
-      - ${PWD}/data:/data
 
 networks:
   eclipse-tabnine:
-
 
 volumes:
   config:

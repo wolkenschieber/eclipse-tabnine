@@ -28,11 +28,6 @@ RUN \
 
 COPY /root /
 
-RUN \
-  mkdir /data \
-  && chown -R abc:abc /data
-
 EXPOSE 3000
 
 VOLUME /config
-VOLUME /data
