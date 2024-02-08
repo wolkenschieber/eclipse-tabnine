@@ -89,6 +89,11 @@ environment:
 | `-v /config` | Users home directory in the container, stores program settings. |
 | `--shm-size=` | This is needed for electron applications to function properly. |
 
+## Mac/Apple silicon
+
+On Apple silicon run [docker-compose.mac.yml](https://github.com/wolkenschieber/eclipse-tabnine/blob/master/docker-compose.mac.yml) file. Update `PUID` and `PGID` according to the output of `id your_user`.
+
+
 ## Links
 
 * [wolkenschieber/eclipse-tabnine](https://hub.docker.com/r/wolkenschieber/eclipse-tabnine)
