@@ -27,6 +27,7 @@ docker run --detach \
 
 ```sh
 docker run --rm -it \
+    -e ECLIPSE_DEBUG=1
     -e PUID=1000 \
     -e PGID=1000 \
     -e TZ=Europe/Berlin \
