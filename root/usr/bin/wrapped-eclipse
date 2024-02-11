@@ -1,6 +1,6 @@
 #!/bin/bash
 BIN='/opt/eclipse/eclipse'
-SUDO='sudo'
+SUDO='/usr/bin/sudo'
 
 ECLIPSE_WORKSPACE="/config/eclipse/workspace"
 ECLIPSE_USER_DIR="/config/eclipse/user"
@@ -16,7 +16,6 @@ if [ "${ECLIPSE_RUN_AS_ROOT}" -eq 1 ]; then
 fi
 
 COMMAND="${COMMAND} ${BIN} -data ${ECLIPSE_WORKSPACE} -clean"
-
 
 if [ -z "${ECLIPSE_DEBUG}" ]; then
     ECLIPSE_DEBUG=0
