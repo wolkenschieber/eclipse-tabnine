@@ -8,7 +8,7 @@ LABEL build_version="Eclipse ${ECLIPSE_VERSION} using Tabnine ${TABNINE_VERSION}
 LABEL maintainer="wolkenschieber"
 
 ENV TITLE=Eclipse-Tabnine
-ENV FM_HOME=/data
+ENV FM_HOME=/config/eclipse
 
 RUN \
   apt-get update \
