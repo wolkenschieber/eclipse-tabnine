@@ -19,6 +19,7 @@ docker run --detach \
     -e PGID=1000 \
     -e TZ=Europe/Berlin \
     -p 3000:3000 \
+    -v /config \
     --name eclipse-tabnine \
     --shm-size="1gb" \
     wolkenschieber/eclipse-tabnine:latest
@@ -50,7 +51,7 @@ docker build --tag wolkenschieber/eclipse-tabnine:latest .
 
 ## Docker Compose
 
-This project provides a sample [docker-compose.yml](https://github.com/wolkenschieber/eclipse-tabnine/blob/master/docker-compose.yml) file.
+This project provides a sample [docker-compose.yml](https://github.com/wolkenschieber/eclipse-tabnine/blob/master/docker-compose.yml) file. The setup provides persistence.
 
 ### Run
 
@@ -76,7 +77,6 @@ environment:
     - "HTTPS_PROXY=http://proxyhost:8080"      
     - "NO_PROXY=127.0.0.1"
 ```
-
 ## Parameters
 
 | Parameter | Function |
@@ -89,11 +89,6 @@ environment:
 | `-e ECLIPSE_RUN_AS_ROOT=1` | run Eclipse as root |
 | `-v /config` | Users home directory in the container, stores program settings. |
 | `--shm-size=` | This is needed for electron applications to function properly. |
-
-## Mac/Apple silicon
-
-On Apple silicon run [docker-compose.mac.yml](https://github.com/wolkenschieber/eclipse-tabnine/blob/master/docker-compose.mac.yml) file. Update `PUID` and `PGID` according to the output of `id your_user`.
-
 
 ## Links
 
